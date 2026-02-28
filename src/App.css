@@ -1,42 +1,46 @@
-#root {
-  max-width: 1280px;
+.app-root {
+  max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 2rem 1.5rem 3rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-main {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-intro {
+  margin-bottom: 1rem;
+  color: #e5e7eb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Header */
+
+.app-header {
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.card {
-  padding: 2em;
+.app-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
 }
 
-.read-the-docs {
-  color: #888;
+.app-header p {
+  color: #9ca3af;
+}
+
+/* Page sections */
+
+.page h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.page p {
+  color: #9ca3af;
+  font-size: 0.95rem;
 }

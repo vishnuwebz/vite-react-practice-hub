@@ -4,6 +4,7 @@ import ProdutsPage from "./components/ProductsPage";
 import TodosPage from "./components/TodosPage";
 import PostsPage from "./components/PostsPage";
 import About from "./components/About";
+import "./App.css";
 
 
 const appTagline = "Learn React concepts with one practice project";
