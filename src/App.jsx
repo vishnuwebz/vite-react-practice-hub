@@ -1,4 +1,10 @@
 import Header from "./components/Header";
+import Home from "./components/Home";
+import ProdutsPage from "./components/ProductsPage";
+import TodosPage from "./components/TodosPage";
+import PostsPage from "./components/PostsPage";
+import About from "./components/About";
+
 
 const appTagline = "Learn React concepts with one practice project";
 
@@ -12,10 +18,15 @@ function App() {
 
 
       <main className="app-main">
-        <p>
+        <p className="app-intro">
           Welcome, <strong>{username}</strong>! It is {currentYear}.
         </p>
-        <p>{appTagline}</p>
+
+        <Home />
+        <ProdutsPage />
+        <TodosPage />
+        <PostsPage />
+        <About />
       </main>
     </div>
   );

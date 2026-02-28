@@ -18,3 +18,25 @@
 .app-main p {
   margin-bottom: 0.5rem;
 }
+
+.app-main {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-intro {
+  margin-bottom: 1rem;
+  color: #e5e7eb;
+}
+
+.page h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.page p{
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
