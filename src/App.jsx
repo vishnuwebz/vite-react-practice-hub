@@ -15,20 +15,24 @@ function App() {
 
   return (
     <div className="app-root">
-      <Header />
-
+      <div className="container">
+        <Header />
 
       <main className="app-main">
         <p className="app-intro">
           Welcome, <strong>{username}</strong>! It is {currentYear}.
         </p>
 
-        <Home />
-        <ProdutsPage />
-        <TodosPage />
-        <PostsPage />
-        <About />
+        <div className="vstack gap3">
+
+          <Home />
+          <ProdutsPage />
+          <TodosPage />
+          <PostsPage />
+          <About />
+        </div>
       </main>
+      </div>
     </div>
   );
 }

@@ -27,6 +27,7 @@
 .app-header h1 {
   font-size: 2rem;
   margin-bottom: 0.25rem;
+  color: white;
 }
 
 .app-header p {
@@ -38,6 +39,7 @@
 .page h2 {
   font-size: 1.4rem;
   margin-bottom: 0.25rem;
+  color: white;
 }
 
 .page p {
