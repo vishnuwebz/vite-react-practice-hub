@@ -46,3 +46,7 @@
   color: #9ca3af;
   font-size: 0.95rem;
 }
+
+.page-home .badge {
+  font-weight: 500;
+}

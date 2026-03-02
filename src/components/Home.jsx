@@ -2,16 +2,25 @@ import { useState } from "react";
 
 function Home() {
   const [typedName, setTypedName] = useState("");
+// const [value, setValue] = usestate(); It returns [value, setValue].
+  const [visitCount, setVisitCount] = useState(0);
 
   function handleWelcomeClick() {
-    console.log("Welcome button clicked");
-    alert("You clicked the welcome button!");
+    setVisitCount((prev) => prev + 1);
+
+    console.log("Welcome button clicked, visitCount now:", visitCount + 1);
+    // alert("You clicked the welcome button!");
   }
 
   function handleNameChange(event) {
     const value = event.target.value; // read from input
     setTypedName(value);
     console.log("User typed:", value);
+  }
+
+  function handleReset() {
+    setVisitCount(0);
+    setTypedName("");
   }
 
   return (
@@ -30,6 +39,10 @@ function Home() {
         >
           Click to say hello
         </button>
+
+        <span>Clicked {visitCount} time{visitCount === 1 ? "" : "s"}</span>
+
+        <button type="button" className="btn btn-outline-light btn-sm" onClick={handleReset}>Reset</button>
       </div>
 
       <div className="mb-2">
@@ -41,6 +54,7 @@ function Home() {
           type="text"
           className="form-control form-control-sm"
           placeholder="Start typing..."
+          value={typedName}
           onChange={handleNameChange}
         />
       </div>
