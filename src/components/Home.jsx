@@ -1,27 +1,29 @@
 import { useState } from "react";
+import StatCard from "./StatCard";
 
 function Home() {
   const [typedName, setTypedName] = useState("");
-// const [value, setValue] = usestate(); It returns [value, setValue].
   const [visitCount, setVisitCount] = useState(0);
 
   function handleWelcomeClick() {
     setVisitCount((prev) => prev + 1);
-
-    console.log("Welcome button clicked, visitCount now:", visitCount + 1);
     // alert("You clicked the welcome button!");
   }
 
   function handleNameChange(event) {
-    const value = event.target.value; // read from input
+    const value = event.target.value;
     setTypedName(value);
-    console.log("User typed:", value);
   }
 
   function handleReset() {
     setVisitCount(0);
     setTypedName("");
   }
+
+  // Temporary placeholder stats (will hook real values later)
+  const totalProducts = 3;
+  const totalTodos = 0;
+  const totalPosts = 0;
 
   return (
     <section className="page page-home">
@@ -31,21 +33,29 @@ function Home() {
         Here you will see quick stats and shortcuts to other pages.
       </p>
 
-      <div className="mb-3">
+      <div className="mb-3 d-flex align-items-center gap-2">
         <button
           type="button"
-          className="btn btn-primary btn-sm me-2"
+          className="btn btn-primary btn-sm"
           onClick={handleWelcomeClick}
         >
           Click to say hello
         </button>
 
-        <span>Clicked {visitCount} time{visitCount === 1 ? "" : "s"}</span>
+        <span className="badge bg-secondary">
+          Clicked {visitCount} time{visitCount === 1 ? "" : "s"}
+        </span>
 
-        <button type="button" className="btn btn-outline-light btn-sm" onClick={handleReset}>Reset</button>
+        <button
+          type="button"
+          className="btn btn-outline-light btn-sm"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
       </div>
 
-      <div className="mb-2">
+      <div className="mb-3">
         <label htmlFor="nameInput" className="form-label">
           Type your name:
         </label>
@@ -64,6 +74,18 @@ function Home() {
           Live preview: <strong>{typedName}</strong>
         </p>
       )}
+
+      <hr className="my-4" />
+
+      <div className="mb-2">
+        <h3 className="h6 text-uppercase text-secondary">Dashboard stats</h3>
+      </div>
+
+      <div className="d-grid gap-2">
+        <StatCard label="Total products" value={totalProducts} accent="info" />
+        <StatCard label="Total todos" value={totalTodos} accent="success" />
+        <StatCard label="Total API posts" value={totalPosts} accent="warning" />
+      </div>
     </section>
   );
 }

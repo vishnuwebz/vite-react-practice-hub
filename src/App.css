@@ -50,3 +50,8 @@
 .page-home .badge {
   font-weight: 500;
 }
+
+
+.stat-card {
+  background: rgba(15, 23, 42, 0.7);
+}
