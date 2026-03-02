@@ -4,10 +4,11 @@ import StatCard from "./StatCard";
 function Home() {
   const [typedName, setTypedName] = useState("");
   const [visitCount, setVisitCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   function handleWelcomeClick() {
     setVisitCount((prev) => prev + 1);
-    // alert("You clicked the welcome button!");
+    alert("You clicked the welcome button!");
   }
 
   function handleNameChange(event) {
@@ -20,7 +21,10 @@ function Home() {
     setTypedName("");
   }
 
-  // Temporary placeholder stats (will hook real values later)
+  function handleAuthToggle() {
+    setIsLoggedIn((prev) => !prev);
+  }
+
   const totalProducts = 3;
   const totalTodos = 0;
   const totalPosts = 0;
@@ -28,10 +32,37 @@ function Home() {
   return (
     <section className="page page-home">
       <h2 className="h4 mb-2">Home</h2>
-      <p className="mb-2">Welcome to React Practice Hub.</p>
-      <p className="text-secondary mb-3">
-        Here you will see quick stats and shortcuts to other pages.
+
+      {/* Conditional greeting */}
+      <p className="mb-1">
+        {isLoggedIn ? (
+          <>
+            Welcome back, <strong>{typedName || "Vishnu"}</strong>!
+          </>
+        ) : (
+          <>You are currently browsing as a guest.</>
+        )}
       </p>
+
+      <p className="text-secondary mb-3">
+        {isLoggedIn
+          ? "You have access to your dashboard stats below."
+          : "Log in to personalize your dashboard experience."}
+      </p>
+
+      <div className="mb-3 d-flex align-items-center gap-2">
+        <button
+          type="button"
+          className="btn btn-outline-info btn-sm"
+          onClick={handleAuthToggle}
+        >
+          {isLoggedIn ? "Logout" : "Login"}
+        </button>
+
+        <span className="badge bg-secondary">
+          Status: {isLoggedIn ? "Logged in" : "Guest"}
+        </span>
+      </div>
 
       <div className="mb-3 d-flex align-items-center gap-2">
         <button
@@ -55,7 +86,7 @@ function Home() {
         </button>
       </div>
 
-      <div className="mb-3">
+      <div className="mb-2">
         <label htmlFor="nameInput" className="form-label">
           Type your name:
         </label>
@@ -69,6 +100,7 @@ function Home() {
         />
       </div>
 
+      {/* Logical AND conditional render */}
       {typedName && (
         <p className="mt-2">
           Live preview: <strong>{typedName}</strong>
@@ -77,15 +109,34 @@ function Home() {
 
       <hr className="my-4" />
 
-      <div className="mb-2">
-        <h3 className="h6 text-uppercase text-secondary">Dashboard stats</h3>
-      </div>
+      {/* Only show stats when logged in */}
+      {isLoggedIn && (
+        <>
+          <div className="mb-2">
+            <h3 className="h6 text-uppercase text-secondary">Dashboard stats</h3>
+          </div>
 
-      <div className="d-grid gap-2">
-        <StatCard label="Total products" value={totalProducts} accent="info" />
-        <StatCard label="Total todos" value={totalTodos} accent="success" />
-        <StatCard label="Total API posts" value={totalPosts} accent="warning" />
-      </div>
+          <div className="d-grid gap-2">
+            <StatCard
+              label="Total products"
+              value={totalProducts}
+              accent="info"
+            />
+            <StatCard label="Total todos" value={totalTodos} accent="success" />
+            <StatCard
+              label="Total API posts"
+              value={totalPosts}
+              accent="warning"
+            />
+          </div>
+        </>
+      )}
+
+      {!isLoggedIn && (
+        <p className="text-secondary mt-3">
+          Login to view your dashboard stats.
+        </p>
+      )}
     </section>
   );
 }
