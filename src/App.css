@@ -55,3 +55,7 @@
 .stat-card {
   background: rgba(15, 23, 42, 0.7);
 }
+
+.page-products table {
+  font-size: 0.9rem;
+}
