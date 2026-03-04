@@ -2,6 +2,8 @@
 
 A small React single-page application (SPA) that combines all core beginner topics into one cohesive project: JSX, components, styling, Bootstrap, events, state, props, conditional rendering, list rendering with keys, hooks (`useState`, `useEffect`), API fetching, React Router, and a Todo mini-project.
 
+**🚀 Live Demo**: https://react-practice-hub-vishnu.netlify.app/
+
 ## Features
 
 - **Home dashboard**
