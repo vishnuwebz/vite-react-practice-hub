@@ -71,3 +71,12 @@
   background-color: #3b82f6;
   color: white;
 }
+
+
+.page-todos .list-group-item {
+  font-size: 0.9rem;
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+}
