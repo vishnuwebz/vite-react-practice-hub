@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const initialProducts = [
   { id: 1, name: "Laptop", price: 55000, qty: 1 },
@@ -8,6 +8,15 @@ const initialProducts = [
 
 function ProductsPage() {
   const [products, setProducts] = useState(initialProducts);
+
+  const totalQty = products.reduce((sum, p) => sum + p.qty, 0);
+
+  const grandTotal = products.reduce((sum, product) => sum + product.price * product.qty, 0);
+
+  useEffect(() => {
+    console.log("useEffect: totalQty changed to", totalQty);
+  }, [totalQty]);
+
 
   function handleQtyChange(id, newQty) {
     const qtyNumber = Number(newQty) < 0 ? 0 : Number(newQty) || 0;
@@ -19,10 +28,6 @@ function ProductsPage() {
     );
   }
 
-  const grandTotal = products.reduce(
-    (sum, product) => sum + product.price * product.qty,
-    0
-  );
 
   return (
     <section className="page page-products">

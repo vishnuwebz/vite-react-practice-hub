@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StatCard from "./StatCard";
 
 function Home() {
   const [typedName, setTypedName] = useState("");
   const [visitCount, setVisitCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (visitCount === 0) return;
+    console.log("useEffect: visitCount changed to", visitCount);
+  }, [visitCount]);
 
   function handleWelcomeClick() {
     setVisitCount((prev) => prev + 1);
@@ -56,7 +61,7 @@ function Home() {
           className="btn btn-outline-info btn-sm"
           onClick={handleAuthToggle}
         >
-          {isLoggedIn ? "Logout" : "Login"}
+       {isLoggedIn ? "Logout" : "Login"}
         </button>
 
         <span className="badge bg-secondary">
