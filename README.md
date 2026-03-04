@@ -1,16 +1,38 @@
-# React + Vite
+# React Practice Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React single-page application (SPA) that combines all core beginner topics into one cohesive project: JSX, components, styling, Bootstrap, events, state, props, conditional rendering, list rendering with keys, hooks (`useState`, `useEffect`), API fetching, React Router, and a Todo mini-project.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home dashboard**
+  - Login/guest toggle with conditional UI.
+  - Interactive welcome button with click counter.
+  - Controlled input with live preview of typed name.
+  - Dashboard stat cards showing products, todos, and API posts.
 
-## React Compiler
+- **Products page**
+  - Product list rendered from an array using `map` and keys.
+  - Editable quantity for each product using controlled inputs.
+  - Per-item total and grand total, derived from state.
+  - Simple status indicator (in cart / not in cart).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Todos page**
+  - Add new todos via a form.
+  - Mark todos as done/undo and delete them.
+  - Pending, completed, and total counts.
+  - Uses array state updates with `map` and `filter`.
+- **API Posts page**
+  - Fetches posts from JSONPlaceholder (`/posts`) using `fetch` and `useEffect`.
+  - Loading and error states for API calls.
+  - Renders a list of posts with titles and bodies.
+- **Routing & layout**
+  - React Router for navigation between Home, Products, Todos, API Posts, and About pages.
+  - Bootstrap-based layout and utility classes for responsive design.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React (with Vite tooling)
+- React Router (`react-router-dom`)
+- Bootstrap 5 (via npm)
+- JavaScript (ES6+), JSX
+- HTML5 & CSS3
